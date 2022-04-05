@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- below we are including the jQuery and jQuery plugin .js files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <script src="js/jquery-ui.js"></script>
+
+    <script>
+        $().ready(function () {
+            $("#datepicker").datepicker();
+            $("#frm").validate({
+                rules: {
+                    Name: "required",
+                    email: "required",
+                    username: "required",
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+                    c_password: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#password" 
+                    },
+                }, messages: {
+                    Name: "Please Enter Name ",
+                    email: "Please Enter email ",
+                    username: "Please Enter username ",
+                    password: {
+                        required: "Please enter a password",
+                        minlength: "Your password must be consist of at least 5 characters"
+                    },
+                    c_password: {
+                        required: "Please enter a password",
+                        minlength: "Your password must be consist of at least 5 characters",
+                        equalTo: "Please enter the same password as above"
+                    },
+                }
+            });
+        });
+    </script>
+</head>
+
+<body style="background-color: black;">
+    <div class="container-fluid">
+        <div class="row">
+            <div style="background-color: black" class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <h3 style="color: white;">Form Validation</h3>
+                    </div>
+                    <div class="card-body">
+                        <!--main code-->
+                        <form id="frm">
+                            <div class="row mb-3">
+                                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Name">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="email" class="form-control" id="Email" name="email"
+                                    placeholder="Enter Email">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="Enter username">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="text" class="form-control" id="datepicker" name="datepicker"
+                                    placeholder="Enter Birth Date">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Enter Password">
+                            </div>
+                            <div class="row mb-3">
+                                <input type="c_password" class="form-control" id="c_password" name="c_password"
+                                    placeholder="Confirm Password">
+                            </div>
+                            <div class="row mb-3">
+                                <button class="btn-success">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
